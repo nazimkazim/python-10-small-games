@@ -2,8 +2,9 @@ from random import *
 from turtle import *
 from base import vector
 
+#Position of the ball
 ball = vector(-200, -200)
-speed = vector(0, 0)
+speed = vector(10, 10)
 targets = []
 
 def inside(xy):
@@ -22,10 +23,10 @@ def draw():
     clear()
     for target in targets:
         goto(target.x, target.y)
-        dot(20, 'blue')
+        dot(30, 'blue')
     if inside(ball):
         goto(ball.x, ball.y)
-        dot(6, 'red')
+        dot(15, 'red')
         
     update()
 
@@ -37,7 +38,8 @@ def move():
         targets.append(target)
         
     for target in targets:
-        target.x -= 0.5
+        #Speed of target's movement
+        target.x -= 1
     if inside(ball):
         speed.y -= 0.35
         ball.move(speed)
